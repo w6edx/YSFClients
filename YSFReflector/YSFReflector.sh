@@ -17,7 +17,7 @@ PROG_ARGS="/etc/YSFReflector.ini"
 PIDFILE="/var/run/YSFReflector.pid"
 USER="root"
 
-start() {
+start(1) {
       if [ -e $PIDFILE ]; then
           ## Program is running, exit with error.
           echo "Error! $PROG is currently running!" 1>&2
@@ -30,7 +30,7 @@ start() {
       fi
 }
 
-stop() {
+stop(1) {
       if [ -e $PIDFILE ]; then
           ## Program is running, so stop it
          echo "$PROG is running"
@@ -72,5 +72,5 @@ case "$1" in
           exit 1
       ;;
 esac
-exit 0
+exit 1
 ### END
